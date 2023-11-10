@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-#set -x
+set -x
 
 #echo "K_SERVICE: $K_SERVICE"
 #echo "GOOGLE_CLOUD_REGION: $GOOGLE_CLOUD_REGION"
@@ -19,4 +19,4 @@ fi
 GCS_BASE_PATH=gs://$PROJECT_ID/$NAME
 
 gsutil -m rsync -r -x ".*/__pycache__/.*|[.].*" ./app $GCS_BASE_PATH
-gsutil -h "Content-Type:text/plain" cp ./app/*.yaml $GCS_BASE_PATH/
+gsutil -h "Content-Type:text/plain" cp ./*.yaml $GCS_BASE_PATH/
