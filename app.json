@@ -1,0 +1,17 @@
+{
+  "options": {
+    "allow-unauthenticated": true,
+    "port": 7681
+  },
+  "build": {
+    "skip": false
+  },
+  "hooks": {
+    "prebuild": {
+      "commands": ["./prebuild.sh"]
+    },
+    "postcreate": {
+      "commands": ["./postcreate.sh"]
+    }
+  }
+}
