@@ -13,10 +13,11 @@ deploy_files() {
   GCS_BASE_PATH=gs://$PROJECT_ID/$NAME
 
   echo "Starting copying of application files to $GCS_BASE_PATH"
-  gsutil -m rsync -r -x ".*/__pycache__/.*|[.].*" ./app $GCS_BASE_PATH
+  gsutil -m rsync -r ./app $GCS_BASE_PATH
   echo "Application files have been copied"
   gsutil -m -h "Content-Type:text/plain" cp ./*.yaml $GCS_BASE_PATH/
   echo "All done"
 }
 
 "$1"
+echo "exitcode:" $?
